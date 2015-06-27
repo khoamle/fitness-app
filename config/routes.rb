@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
+  root to: 'exercises#index'
   get "/exercises" => 'exercises#index'
+  get "/exercises/new" => "exercises#new"
+  post "/exercises" => 'exercises#create'
+  get "/exercises/:id" => 'exercises#show'
+  get "/exercises/:id/edit" => 'exercises#edit'
+  patch "/exercises/:id" => 'exercises#update'
+  delete "/exercises/:id" => 'exercises#destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

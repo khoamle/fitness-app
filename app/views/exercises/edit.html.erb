@@ -1,0 +1,28 @@
+<h1>Edit exercise</h1>
+
+<%= form_tag "/exercises/#{@exercise.id}", method: :patch do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, @exercise.name%>
+  </div>
+  <div>
+    <%= label_tag :muscle %>
+    <%= text_field_tag :muscle, @exercise.muscle%>
+  </div>
+  <div>
+    <%= label_tag :equipment %>
+    <%= text_field_tag :equipment, @exercise.equipment%>
+  </div>
+  <div>
+    <%= label_tag :level %>
+    <%= text_field_tag :level, @exercise.level%>
+  </div>
+  <div>
+    <%= label_tag :instruction %>
+    <%= text_field_tag :instruction, @exercise.instruction %>
+
+  </div>
+  <div>
+    <%= submit_tag "Update Exercise" %>
+  </div>
+<% end %>
