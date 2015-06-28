@@ -6,11 +6,11 @@
     <%= text_field_tag :name, @exercise.name%>
   </div>
   <div>
-    <%= label_tag :muscle %>
+    <%= label_tag :muscle, "Muscle Worked" %>
     <%= text_field_tag :muscle, @exercise.muscle%>
   </div>
   <div>
-    <%= label_tag :equipment %>
+    <%= label_tag :equipment, "Equipment Type" %>
     <%= text_field_tag :equipment, @exercise.equipment%>
   </div>
   <div>
@@ -18,9 +18,8 @@
     <%= text_field_tag :level, @exercise.level%>
   </div>
   <div>
-    <%= label_tag :instruction %>
+    <%= label_tag :instruction, "Instructions" %>
     <%= text_field_tag :instruction, @exercise.instruction %>
-
   </div>
   <div>
     <%= submit_tag "Update Exercise" %>
