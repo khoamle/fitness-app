@@ -10,6 +10,7 @@ class ExercisesController < ApplicationController
 
   def create
     @exercise = Exercise.create(id: params[:id], name: params[:name], instruction: params[:instruction], equipment: params[:equipment], muscle: params[:muscle], level: params[:level])
+    @categorized_exercise = CategorizedExercise.create(category_id: params[:category][:category_id], exercise_id: @exercise.id)
     redirect_to "/exercises/#{@exercise.id}"
   end
 
