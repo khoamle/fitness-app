@@ -19,7 +19,7 @@
   </div>
   <div>
     <%= label_tag :instruction, "Instructions" %>
-    <%= text_field_tag :instruction, @exercise.instruction %>
+    <%= text_field_tag :instruction, @exercise.instruction, size: 100 %>
   </div>
   <div>
     <%= submit_tag "Update Exercise" %>
