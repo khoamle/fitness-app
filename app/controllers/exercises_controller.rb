@@ -32,6 +32,7 @@ class ExercisesController < ApplicationController
   def update
     @exercise = Exercise.find_by(id: params[:id])
     @exercise.update(id: params[:id], name: params[:name], instruction: params[:instruction], equipment: params[:equipment], muscle: params[:muscle], level: params[:level])
+    @exercise.images.destroy_all
     @image_1 = Image.create(exercise_id: @exercise.id, image_url: params[:image_1])
     @image_2 = Image.create(exercise_id: @exercise.id, image_url: params[:image_2])
     redirect_to "/exercises/#{@exercise.id}"
