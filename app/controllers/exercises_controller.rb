@@ -13,13 +13,13 @@ class ExercisesController < ApplicationController
     @image_1 = Image.create(exercise_id: @exercise.id, image_url: params[:image_1], exercise_id: @exercise.id)
     @image_2 = Image.create(exercise_id: @exercise.id, image_url: params[:image_2], exercise_id: @exercise.id)
     @categorized_exercise = CategorizedExercise.create(category_id: params[:category][:category_id], exercise_id: @exercise.id)
-    @post = Post.create(exercise_id: @exercise.id, title: params[:title], body: params[:body])
+    @comment = Comment.create(exercise_id: @exercise.id, body: params[:body])
     redirect_to "/exercises/#{@exercise.id}"
   end
 
   def show 
     @exercise = Exercise.find_by(id: params[:id])
-    p @exercise.images
+    @instructions = @exercise.instruction.split(". ")
   end
 
   def edit
@@ -32,6 +32,12 @@ class ExercisesController < ApplicationController
     @image_1 = Image.create(exercise_id: @exercise.id, image_url: params[:image_1])
     @image_2 = Image.create(exercise_id: @exercise.id, image_url: params[:image_2])
     redirect_to "/exercises/#{@exercise.id}"
+  end
+
+  def destroy
+    @exercise = Exercise.find_by(id: params[:id])
+    @exercise.destroy
+    redirect_to :exercises
   end
 
 end 

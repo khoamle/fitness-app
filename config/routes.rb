@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   patch "/exercises/:id" => 'exercises#update'
   delete "/exercises/:id" => 'exercises#destroy'
 
+  get "/categories" => 'categories#index'
   get "/categories/new" => 'categories#new'
   post "/categories" => 'categories#create'
 

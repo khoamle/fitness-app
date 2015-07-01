@@ -2,11 +2,21 @@
 <h3>Equipment Type: <%= @exercise.equipment %></h3>
 <h3>Muscle worked: <%= @exercise.muscle %></h3>
 <h3>Level: <%= @exercise.level %></h3>
-<h3>Instructions: <%= @exercise.instruction %></h3>
+
+<h3>Instuctions:</h3>
+<ol>
+  <h4>
+    <% @instructions.each do |instruction| %>
+      <li><%= instruction %></li>
+    <% end %>
+  </h4>
+</ol>
+
 <% @exercise.images.each do |image| %>
   <%= image_tag image.image_url, width: 400, height: 400 %>
 <% end %>
-<br>
+<br><br>
+
 
 <%= link_to "Edit Exercise", "/exercises/#{@exercise.id}/edit" %>
 <%= link_to "Delete Exercise", "/exercise", method: :delete %>
