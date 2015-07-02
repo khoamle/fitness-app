@@ -12,7 +12,9 @@
   </h4>
 </ol>
 
-@image = 
+<%= @exercise.images.each do |image| %>
+  <%= image_tag image.image.url %>
+<% end %>
 
 <br><br>
 
