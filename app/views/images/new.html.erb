@@ -1,0 +1,11 @@
+<%= form_for @image, url: "/exercises/" + params[:exercise_id] + "/images" do |f| %>
+  <div>
+    <%= f.label :image %>
+  </div>
+  <div>
+    <%= f.file_field :image_url %>
+  </div>
+  <div>
+    <%= f.submit "Add Image" %>
+  </div>
+<% end %>

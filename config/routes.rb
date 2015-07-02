@@ -2,13 +2,18 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'exercises#index'
-  get "/exercises" => 'exercises#index'
-  get "/exercises/new" => "exercises#new"
-  post "/exercises" => 'exercises#create'
-  get "/exercises/:id" => 'exercises#show'
-  get "/exercises/:id/edit" => 'exercises#edit'
-  patch "/exercises/:id" => 'exercises#update'
-  delete "/exercises/:id" => 'exercises#destroy'
+  resources :exercises do
+    resources :images
+  end
+
+  # get "/exercises" => 'exercises#index'
+  # get "/exercises/new" => "exercises#new"
+  # post "/exercises" => 'exercises#create'
+  # get "/exercises/:id" => 'exercises#show'
+  # get "/exercises/:id/edit" => 'exercises#edit'
+  # patch "/exercises/:id" => 'exercises#update'
+  # delete "/exercises/:id" => 'exercises#destroy'
+
 
   get "/categories" => 'categories#index'
   get "/categories/new" => 'categories#new'
@@ -17,6 +22,11 @@ Rails.application.routes.draw do
   get "/posts" => 'posts#index.html'
   get "/posts/new" => 'posts#new'
   post "/posts" => 'posts#create'
+
+  # get "/images/new" => 'images#new'
+  # post "/images" => 'images#create'
+  # get "/images/:id/edit" => 'images#edit'
+  # patch "/images/:id" => 'images#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
