@@ -22,14 +22,6 @@
     <%= text_area_tag :instruction, @exercise.instruction%>
   </div>
   <div>
-    <%= label_tag :image_1 %>
-    <%= text_field_tag :image_1, @exercise.images.first.image_url%>
-  </div>
-  <div>
-    <%= label_tag :image_2 %>
-    <%= text_field_tag :image_2, @exercise.images.last.image_url%>
-  </div>
-  <div>
     <%= submit_tag "Update Exercise" %>
   </div>
 <% end %>

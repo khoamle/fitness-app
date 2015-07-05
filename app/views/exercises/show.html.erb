@@ -12,12 +12,19 @@
   </h4>
 </ol>
 
-<%= @exercise.images.each do |image| %>
-  <%= image_tag image.image.url %>
+<% @exercise.images.each do |image| %>
+  <%= image_tag image.image.url, width: 400, height: 400 %>
 <% end %>
 
 <br><br>
 
 
+
+
 <%= link_to "Edit Exercise", "/exercises/#{@exercise.id}/edit" %>
+<hr>
 <%= link_to "Delete Exercise", "/exercise", method: :delete %>
+<hr>
+<%= link_to "Add Image", "/exercises/#{@exercise.id}/images/new" %>
+<hr>
+<%= link_to "Edit Image", "/exercises/#{@exercise.id}/images/#{@exercise.id}/edit" %>

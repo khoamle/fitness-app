@@ -26,16 +26,6 @@
     <%= collection_select :category, :category_id, Category.all, :id, :name  %>
   </div>
   <div>
-    <%= label_tag :image_1 %>
-    <%= text_field_tag :image_1  %>
-  </div>
-  <div>
-    <%= label_tag :image_2 %>
-    <%= text_field_tag :image_2  %>
-  </div>
-
-  <div>
     <%= submit_tag "Add Exercise" %>
   </div>
-
 <% end %>

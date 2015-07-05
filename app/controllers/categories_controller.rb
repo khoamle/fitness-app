@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(id: params, name: params[:name])
+    redirect_to "/categories/new"
   end
 
 

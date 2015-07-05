@@ -19,9 +19,10 @@ Rails.application.routes.draw do
   get "/categories/new" => 'categories#new'
   post "/categories" => 'categories#create'
 
-  get "/posts" => 'posts#index.html'
-  get "/posts/new" => 'posts#new'
-  post "/posts" => 'posts#create'
+  get "/comments" => 'comments#index.html'
+  get "/comments/new" => 'comments#new'
+  post "/comments" => 'comments#create'
+  get "/comments/:id" => 'comments#show'
 
   # get "/images/new" => 'images#new'
   # post "/images" => 'images#create'

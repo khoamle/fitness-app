@@ -9,6 +9,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'fog'
+gem 'seed_dump'
 gem 'pry-rails', :group => :developement
 gem 'dotenv-rails', :groups => [:development, :test]
 # Use SCSS for stylesheets
