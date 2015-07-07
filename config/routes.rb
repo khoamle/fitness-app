@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get "/comments/new" => 'comments#new'
   post "/comments" => 'comments#create'
   get "/comments/:id" => 'comments#show'
+  get "/comments/:id/edit" => 'comments#edit'
+  patch "/comments/:id" => 'comments#update'
 
   # get "/images/new" => 'images#new'
   # post "/images" => 'images#create'

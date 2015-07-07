@@ -15,15 +15,45 @@
 <% @exercise.images.each do |image| %>
   <%= image_tag image.image.url, width: 400, height: 400 %>
 <% end %>
-
 <br><br>
 
+<h4>Comments</h4>
+<p><% @exercise.comments.each do |comment| %>
+  <p><%= comment.body %></p>
+<% end %></p>
 
+<h4>Add a comment</h4>
+
+<%= form_tag "/comments", method: :post do %>
+  <div>
+    <%= label_tag :body %>
+    <%= text_area_tag :body %>
+  </div>
+  <div>
+    <%= hidden_field_tag "exercise_id", @exercise.id %>
+  </div>
+  <div>
+    <%= submit_tag "Add Comment" %>
+  </div>
+<% end %>
+<br>
+<%= form_tag "/comments/#{@comment.id}", method: :patch do %>
+  <div>
+    <%= label_tag :body %>
+    <%= text_area_tag :body, @comment.body %>
+  </div>
+  <div>
+    <%= hidden_field_tag "exercise_id", @exercise.id %>
+  </div>
+  <div>
+    <%= submit_tag "Edit Comment" %>
+  </div>
+<% end %>
 
 
 <%= link_to "Edit Exercise", "/exercises/#{@exercise.id}/edit" %>
 <hr>
-<%= link_to "Delete Exercise", "/exercise", method: :delete %>
+<%= link_to "Delete Exercise", "/exercises/#{@exercise.id}", method: :delete %>
 <hr>
 <%= link_to "Add Image", "/exercises/#{@exercise.id}/images/new" %>
 <hr>

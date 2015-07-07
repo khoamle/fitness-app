@@ -17,17 +17,18 @@ class ExercisesController < ApplicationController
 
   def create
     @exercise = Exercise.create(id: params[:id], name: params[:name], instruction: params[:instruction], equipment: params[:equipment], muscle: params[:muscle], level: params[:level])
-    #@image_1 = Image.create(exercise_id: @exercise.id, image_url: params[:image_1], exercise_id: @exercise.id)
-    #@image_2 = Image.create(exercise_id: @exercise.id, image_url: params[:image_2], exercise_id: @exercise.id)
     @categorized_exercise = CategorizedExercise.create(category_id: params[:category][:category_id], exercise_id: @exercise.id)
-    #@comment = Comment.create(exercise_id: @exercise.id, body: params[:body])
+    @comment = Comment.create(exercise_id: @exercise.id)
     redirect_to "/exercises/#{@exercise.id}"
   end
 
   def show
     @exercise = Exercise.find_by(id: params[:id])
-    @comment = Comment.find_by(exercise_id: params[:id])
+    #@comment = Comment.find_by(exercise_id: params[:id])
     @instructions = @exercise.instruction.split(". ")
+    @comment = Comment.find_by(id: params[:id])
+    @comments = Comment.all
+    render "show"
   end
 
   def edit
@@ -41,16 +42,16 @@ class ExercisesController < ApplicationController
   def update
     @exercise = Exercise.find_by(id: params[:id])
     @exercise.update(id: params[:id], name: params[:name], instruction: params[:instruction], equipment: params[:equipment], muscle: params[:muscle], level: params[:level])
-    @exercise.images.destroy_all
-    #@image_1 = Image.create(exercise_id: @exercise.id, image_url: params[:image_1])
-    #@image_2 = Image.create(exercise_id: @exercise.id, image_url: params[:image_2])
+    #@exercise.images.destroy_all
     redirect_to "/exercises/#{@exercise.id}"
   end
 
   def destroy
     if user_signed_in?
       @exercise = Exercise.find_by(id: params[:id])
+      @categorized_exercise = CategorizedExercise.find_by(exercise_id: @exercise.id)
       @exercise.destroy
+      @categorized_exercise.destroy
       redirect_to "/exercises"
     else
       redirect_to "/users/sign_in"

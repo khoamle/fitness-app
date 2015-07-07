@@ -21,11 +21,18 @@ class ImagesController < ApplicationController
       flash[:success] = "Image sucessfully updated!"
       redirect_to "/exercises/#{params[:exercise_id]}"
     else
-      render :edit
+      render "edit"
     end
   end 
 
   def edit
     @image = Image.find_by(exercise_id: params[:exercise_id])
   end
+
+  def destroy
+    @image = Image.find_by(exercise_id: params[:exercise_id])
+    @image.destroy
+    redirect_to "/images"
+  end
+
 end
