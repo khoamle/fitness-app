@@ -7,11 +7,11 @@ gem 'rails', '4.2.0'
 gem 'mysql2'
 gem 'devise'
 gem 'carrierwave'
-gem 'bootstrap-sass', '~> 3.3.5'
 gem 'fog'
 gem 'seed_dump'
 gem 'pry-rails', :group => :developement
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'thematic'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
