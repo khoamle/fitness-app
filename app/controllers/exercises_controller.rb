@@ -1,18 +1,19 @@
 class ExercisesController < ApplicationController
+  before_filter :authenticate_user!, :except => ["index"]
 
   def index
-    @exercises = Exercise.all
     if params[:category]
       @exercises = Category.find_by(name: params[:category]).exercises
+    end
+    if user_signed_in?
+      @exercises = current_user.exercises
+    else
+      @exercises = Exercise.all
     end
   end
 
   def new
-    if user_signed_in?
-      @exercise = Exercise.new
-    else
-      redirect_to "/users/sign_in"
-    end
+    @exercise = Exercise.new
   end
 
   def create

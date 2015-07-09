@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "/comments/:id" => 'comments#show'
   get "/comments/:id/edit" => 'comments#edit'
   patch "/comments/:id" => 'comments#update'
+  delete "/comments/:id" => 'comments#destroy'
 
   # get "/images/new" => 'images#new'
   # post "/images" => 'images#create'

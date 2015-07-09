@@ -19,7 +19,12 @@
 
 <h4>Comments</h4>
 <p><% @exercise.comments.each do |comment| %>
-  <p><%= comment.body %></p>
+    <p><%= comment.body %>
+  <% if current_user.id == comment.user_id %>
+
+    <a rel="nofollow" data-method="delete" href="/comments/<%= comment.id %>", class="btn btn-info" role="button">Delete</a>
+  <% end %>
+    </p>
 <% end %></p>
 
 <h4>Add a comment</h4>
@@ -37,19 +42,6 @@
   </div>
 <% end %>
 <br>
-<%= form_tag "/comments/#{@comment.id}", method: :patch do %>
-  <div>
-    <%= label_tag :body %>
-    <%= text_area_tag :body, @comment.body %>
-  </div>
-  <div>
-    <%= hidden_field_tag "exercise_id", @exercise.id %>
-  </div>
-  <div>
-    <%= submit_tag "Edit Comment" %>
-  </div>
-<% end %>
-
 
 <%= link_to "Edit Exercise", "/exercises/#{@exercise.id}/edit" %>
 <hr>
