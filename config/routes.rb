@@ -27,6 +27,13 @@ Rails.application.routes.draw do
   patch "/comments/:id" => 'comments#update'
   delete "/comments/:id" => 'comments#destroy'
 
+  get "/home" => 'pages#home'
+  get "/about" => 'pages#about'
+  get "/feature" => 'pages#feature'
+  get "/test" => 'pages#test'
+  get "/footer" => 'pages#footer'
+  get "/workout" => 'pages#workout'
+
   # get "/images/new" => 'images#new'
   # post "/images" => 'images#create'
   # get "/images/:id/edit" => 'images#edit'
