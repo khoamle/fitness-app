@@ -21,16 +21,22 @@
 			<!-- Navigation Menu -->
 		    <div class="nav-menu">
 				<ul class="nav uppercase">
-					<li><a href="#home" class="scroll">Home</a></li>       
+					<li><a href="#home" class="scroll">Home</a></li>
+					<li><a href="/exercises" class="scroll">Exercises</a></li>       
 					<li><a href="#about" class="scroll">About us</a></li>
-					<li><a href="#features" class="scroll">Features</a></li>     
+					<li><a href="#features" class="scroll">Features</a></li>
+					<li><a href="/users/sign_in" class="scroll">Sign In</a></li>
+					<li><a href="/users/sign_up" class="scroll">Sign Up</a></li>
 					<li><a href="#clients" class="scroll">Gymnasts</a></li>
 					<li><a href="#testimonial" class="scroll">Testimonial</a></li>
-					<li><a href="#contact" class="scroll">Contact</a></li>
 				</ul>
 		  </div><!-- End Navigation Menu -->
 		</div><!-- End Navigation Inner -->
 	</section><!-- End Navigation Section -->
+
+<div class="container">
+	<%= yield %>
+</div>
 
 
 	<!-- Home Section -->
@@ -50,16 +56,20 @@
 			  <a href="#" class="prev"></a>
 			</nav>
 		</div><!-- End Home Slides -->
+
 		<div class="v2 absolute">
 			<!-- Auto Typocraphic Texts -->
 			<div class="typographic">
             	<!-- Your Logo -->
+        <!--
 				<div class="logo">
 					<img src="/assets/theme/logo-icon.png" width="200" alt="Logo" />
 				</div>
+				-->
+				<!--
 				<h2 class=" condensed uppercase no-padding no-margin bold gray1">Introducing</h2>
 				<h2 class=" condensed uppercase no-padding no-margin bold colored">Fitness Passion</h2>
-				<a href="#about" class="scroll"><i class="arrow-down fa fa-3x fa-angle-double-down"></i></a>
+				<a href="#about" class="scroll"><i class="arrow-down fa fa-3x fa-angle-double-down"></i></a> -->
 			</div><!--End Auto Typocraphic Texts -->
 		</div><!-- End V2 area -->
 	</section><!-- End Home Section -->
@@ -513,54 +523,6 @@
 		</div>
 
 	</section><!-- End Blockquote Section -->
-    
-	<!-- Contact Section -->
-	<section id="contact" class="container parallax4">
-		<!-- Contact Inner -->
-		<div class="inner contact">
-
-			<!-- Form Area -->
-			<div class="contact-form">
-            
-            	<h4 class="header light gray3 fancy"><span class="colored">Contact</span> Us</h4>
-                <p class="h-desc white">lorem Ipsum is lorem Ipsum of passages of Lorem Ipsum available, but the majority have suffered alteration.<br />
-                Email us or give us a call at <span class="bold colored">+1 (800) 245-1234.</span></p>
-				<!-- Form -->
-				<form id="contact-us" method="post" action="#">
-					<!-- Left Inputs -->
-					<div class="col-xs-6 animated" data-animation="fadeInLeft" data-animation-delay="300">
-						<!-- Name -->
-						<input type="text" name="name" id="name" required="required" class="form" placeholder="Name" />
-						<!-- Email -->
-						<input type="email" name="mail" id="mail" required="required" class="form" placeholder="Email" />
-						<!-- Subject -->
-						<input type="text" name="subject" id="subject" required="required" class="form" placeholder="Subject" />
-					</div><!-- End Left Inputs -->
-					<!-- Right Inputs -->
-					<div class="col-xs-6 animated" data-animation="fadeInRight" data-animation-delay="400">
-						<!-- Message -->
-						<textarea name="message" id="message" class="form textarea"  placeholder="Message"></textarea>
-					</div><!-- End Right Inputs -->
-					<!-- Bottom Submit -->
-					<div class="relative fullwidth col-xs-12">
-						<!-- Send Button -->
-						<button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button> 
-					</div><!-- End Bottom Submit -->
-					<!-- Clear -->
-					<div class="clear"></div>
-				</form>
-
-				<!-- Your Mail Message -->
-				<div class="mail-message-area">
-					<!-- Message -->
-					<div class="alert gray-bg mail-message not-visible-message">
-						<strong>Thank You !</strong> Your email has been delivered.
-					</div>
-				</div>
-
-			</div><!-- End Contact Form Area -->
-		</div><!-- End Inner -->
-	</section><!-- End Contact Section -->
 
 
 
@@ -612,6 +574,7 @@
 
 
 
+
 	<!-- Footer -->
 	<footer id="footer" class="footer">
 		<!-- Your Company Name -->
@@ -620,10 +583,9 @@
 		<p class="copyright normal">© 2014 <span class="colored">Fitness.</span> All Rights Reserved.</p>
 	</footer><!-- End Footer -->
 
-	
 
-	<script>
 
+<script>
   $("a.about-icon").hover(function () {
     $(this).children("i").addClass("fa-spin");
  }, function(){
