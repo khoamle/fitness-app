@@ -7,7 +7,6 @@ gem 'rails', '4.2.0'
 gem 'mysql2'
 gem 'devise'
 gem 'carrierwave'
-gem 'bootstrap-sass', '~> 3.3.5'
 gem 'fog'
 gem 'seed_dump'
 gem 'pry-rails', :group => :developement
