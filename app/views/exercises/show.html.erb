@@ -21,7 +21,6 @@
 <p><% @exercise.comments.each do |comment| %>
     <p><%= comment.body %>
   <% if current_user.id == comment.user_id %>
-
     <a rel="nofollow" data-method="delete" href="/comments/<%= comment.id %>", class="btn btn-info" role="button">Delete</a>
   <% end %>
     </p>
@@ -43,10 +42,7 @@
 <% end %>
 <br>
 
-<%= link_to "Edit Exercise", "/exercises/#{@exercise.id}/edit" %>
-<hr>
-<%= link_to "Delete Exercise", "/exercises/#{@exercise.id}", method: :delete %>
-<hr>
-<%= link_to "Add Image", "/exercises/#{@exercise.id}/images/new" %>
-<hr>
-<%= link_to "Edit Image", "/exercises/#{@exercise.id}/images/#{@exercise.id}/edit" %>
+<a href="/exercises/<%= @exercise.id %>/edit" class="btn btn-info" role="button">Edit Exercise</a>
+<a rel="nofollow" data-method="delete" href="/exercises/<%= @exercise.id %>", class="btn btn-info" role="button">Delete Exercise</a>
+<a href="/exercises/<%= @exercise.id %>/images/new" class="btn btn-info" role="button">Add Image</a>
+<a href="/exercises/<%= @exercise.id %>/images/<%= @exercise.id %>/edit" class="btn btn-info" role="button">Edit Image</a>
