@@ -1,9 +1,22 @@
-<% @exercises.each do |exercise| %>
-  <h3>Name: <%= exercise.name %></h3>
-  <h3>Equipment Type: <%= exercise.equipment %></h3>
-  <h3>Muscle worked: <%= exercise.muscle %></h3>
-  <h3>Level: <%= exercise.level %></h3>
-  <br><br>
-<% end %>
+<section id="clients" class="container">
+  <div class="inner team">
+    <h1 class="header light gray3 fancy"><span class="colored">Workout </span> Exercises</h1>
+  </div>
+</section>
+
+<div class="row">
+  <% @exercises.each do |exercise| %>
+    <div class="col-md-4">
+      <h3>Exercise: <%= exercise.name %></h3>
+      <% exercise.images.each do |image| %>
+        <%= image_tag image.image_url, width: 250, height: 250  %>
+      <% end %>
+      <a href="/exercises/<%= exercise.id %>" class="btn btn-info" role="button">Click to See More</a>
+      <br><br>
+    </div>
+  <% end %>
+</div>
+
+
 
 

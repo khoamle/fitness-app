@@ -1,0 +1,7 @@
+<% @my_exercises.each do |exercise| %>
+  <h2>Exercise: <%= exercise.name %></h2>
+  <% exercise.images.each do |image| %>
+    <%= image_tag image.image.url, width: 400, height: 400 %>
+  <% end %>
+<% end %>
+

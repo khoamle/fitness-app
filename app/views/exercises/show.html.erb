@@ -5,11 +5,9 @@
 
 <h3>Instuctions:</h3>
 <ol>
-  <h4>
-    <% @instructions.each do |instruction| %>
-      <li><%= instruction %></li>
+    <% @instructions.each do |instruction, num| %>
+      <li><%= instruction %><li>
     <% end %>
-  </h4>
 </ol>
 
 <% @exercise.images.each do |image| %>
@@ -17,32 +15,41 @@
 <% end %>
 <br><br>
 
+<%= form_tag "/my_exercises", method: :post do%>
+  <%= hidden_field_tag "exercise_id", @exercise.id %>
+  <%= submit_tag "Add to Workout" %>
+<% end %>
+
 <h4>Comments</h4>
 <p><% @exercise.comments.each do |comment| %>
     <p><%= comment.body %>
-  <% if current_user.id == comment.user_id %>
-    <a rel="nofollow" data-method="delete" href="/comments/<%= comment.id %>", class="btn btn-info" role="button">Delete</a>
-  <% end %>
+    <% if current_user %>
+      <% if current_user.id == comment.user_id %>
+        <a rel="nofollow" data-method="delete" href="/comments/<%= comment.id %>", class="btn btn-info" role="button">Delete</a>
+      <% end %>
+    <% end %>
     </p>
 <% end %></p>
 
-<h4>Add a comment</h4>
+<% if current_user %>
+  <h4>Add a comment</h4>
 
-<%= form_tag "/comments", method: :post do %>
-  <div>
-    <%= label_tag :body %>
-    <%= text_area_tag :body %>
-  </div>
-  <div>
-    <%= hidden_field_tag "exercise_id", @exercise.id %>
-  </div>
-  <div>
-    <%= submit_tag "Add Comment" %>
-  </div>
+  <%= form_tag "/comments", method: :post do %>
+    <div>
+      <%= label_tag :body %>
+      <%= text_area_tag :body %>
+    </div>
+    <div>
+      <%= hidden_field_tag "exercise_id", @exercise.id %>
+    </div>
+    <div>
+      <%= submit_tag "Add Comment" %>
+    </div>
+  <% end %>
+  <br>
+
+  <a href="/exercises/<%= @exercise.id %>/edit" class="btn btn-info" role="button">Edit Exercise</a>
+  <a rel="nofollow" data-method="delete" href="/exercises/<%= @exercise.id %>", class="btn btn-info" role="button">Delete Exercise</a>
+  <a href="/exercises/<%= @exercise.id %>/images/new" class="btn btn-info" role="button">Add Image</a>
+  <a href="/exercises/<%= @exercise.id %>/images/<%= @exercise.id %>/edit" class="btn btn-info" role="button">Edit Image</a>
 <% end %>
-<br>
-
-<a href="/exercises/<%= @exercise.id %>/edit" class="btn btn-info" role="button">Edit Exercise</a>
-<a rel="nofollow" data-method="delete" href="/exercises/<%= @exercise.id %>", class="btn btn-info" role="button">Delete Exercise</a>
-<a href="/exercises/<%= @exercise.id %>/images/new" class="btn btn-info" role="button">Add Image</a>
-<a href="/exercises/<%= @exercise.id %>/images/<%= @exercise.id %>/edit" class="btn btn-info" role="button">Edit Image</a>

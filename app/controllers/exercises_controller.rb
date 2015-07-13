@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_filter :authenticate_user!, :except => ["index"]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     if params[:category]
@@ -25,7 +25,6 @@ class ExercisesController < ApplicationController
 
   def show
     @exercise = Exercise.find_by(id: params[:id])
-    #@comment = Comment.find_by(exercise_id: params[:id])
     @instructions = @exercise.instruction.split(". ")
     @comment = Comment.find_by(id: params[:id])
     @comments = Comment.all

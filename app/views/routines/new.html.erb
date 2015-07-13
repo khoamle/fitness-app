@@ -1,0 +1,20 @@
+<h1>Add a new workout</h1>
+
+<%= form_tag "/routines", method: :post do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_area_tag :name %>
+  </div>
+  <div>
+    <%= label_tag :sets %>
+    <%= text_area_tag :sets %>
+  </div>
+  <div>
+    <%= label_tag :reps %>
+    <%= text_area_tag :reps %>
+  </div>
+  <br>
+  <div>
+    <%= submit_tag "Add Workout Routine" %>
+  </div>
+<% end %>
