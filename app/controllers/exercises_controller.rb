@@ -2,13 +2,9 @@ class ExercisesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
+    @exercises = Exercise.all
     if params[:category]
       @exercises = Category.find_by(name: params[:category]).exercises
-    end
-    if user_signed_in?
-      @exercises = current_user.exercises
-    else
-      @exercises = Exercise.all
     end
   end
 

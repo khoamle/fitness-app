@@ -14,23 +14,28 @@
 		<div class="nav-inner">
 			<!-- Site Logo -->
 			<div class="site-logo fancy">
-				<a href="#" id="logo-text" class="scroll logo">Get Pumped Up!
+				<a href="#" id="logo-text" class="scroll logo">Get Fit!
 				</a>
 			</div><!-- End Site Logo -->
 			<a class="mini-nav-button gray2"><i class="fa fa-bars"></i></a>
 			<!-- Navigation Menu -->
-		    <div class="nav-menu">
+		    <div class="nav-menu" class="dropdown">
 				<ul class="nav uppercase">
 					<li><a href="/home">Home</a></li>
-					<li><a href="/exercises">Exercises</a></li>       
-					<li><a href="/about" class="scroll">About us</a></li>
-					<li><a href="/feature" class="scroll">Features</a></li>
+					<li><a href="/exercises">All Exercises</a></li>
+          <li><%= link_to "My Exercises", "/my_exercises" if current_user %></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% Category.all.each do |category| %>
+                <li><a href="/exercises?category=<%= category.name %>"><%= category.name %></a></li>
+              <% end %>
+            </ul>
+          </li>      
 					<li><%= link_to "Sign In", "/users/sign_in" unless current_user %></li>
         	<li><%= link_to "Sign Up", "/users/sign_up" unless current_user %></li>
 					<li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %>
 					<li><a href="/workout" class="scroll">Workout</a></li>
-					<li><a href="/test" class="scroll">Testimonial</a></li>
-				</ul>
+        </ul>
 		  </div><!-- End Navigation Menu -->
 		</div><!-- End Navigation Inner -->
 	</section><!-- End Navigation Section -->

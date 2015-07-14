@@ -8,6 +8,7 @@
   <% @exercises.each do |exercise| %>
     <div class="col-md-4">
       <h3>Exercise: <%= exercise.name %></h3>
+      <h3>Muscles targeted:<%= exercise.muscle %></h3>
       <% exercise.images.each do |image| %>
         <%= image_tag image.image_url, width: 250, height: 250  %>
       <% end %>
