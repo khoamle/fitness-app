@@ -1,6 +1,3 @@
-User.create!([
-  {email: "khoa@msn.com", encrypted_password: "$2a$10$1TcSofOL96n4Jy/MvmdsseWpSMKwXIXlp2RnMzVx04zDT8O.GANgC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-07-04 16:14:38", last_sign_in_at: "2015-07-04 16:14:31", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
-])
 CategorizedExercise.create!([
   {exercise_id: 1, category_id: 3},
   {exercise_id: 2, category_id: 3},

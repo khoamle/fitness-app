@@ -42,10 +42,15 @@ Rails.application.routes.draw do
   patch "/routines/:id" => 'routines#update'
   delete "/routines/:id" => 'routines#destroy'
 
-  get "/my_exercises" => 'my_exercises#index'
-  post "/my_exercises" => 'my_exercises#create'
-  get "/my_exercises/:id" => 'my_exercises#show'
+  get "/workouts" => 'workouts#index'
+  get "/workouts/new" => 'workouts#new'
+  post "/workouts" => 'workouts#create'
+  get "/workouts/:id" => 'workouts#show'
 
+  get "/workout_exercises" => 'workout_exercises#index'
+  post "/workout_exercises" => 'workout_exercises#create'
+
+  
   # get "/images/new" => 'images#new'
   # post "/images" => 'images#create'
   # get "/images/:id/edit" => 'images#edit'

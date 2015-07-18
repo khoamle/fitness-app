@@ -1,0 +1,14 @@
+<section id="clients" class="container">
+  <div class="inner team">
+    <h1 class="header light gray3 fancy"><span class="colored">My </span> Workout</h1>
+  </div>
+</section>
+
+<div class="row">
+  <% @workouts.each do |workout| %>
+    <div class="col-md-4">
+      <h3>Name: <%= workout.name %></h3>
+      
+    </div>
+  <% end %>
+</div>

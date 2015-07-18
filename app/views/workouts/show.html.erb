@@ -1,0 +1,7 @@
+<% @workouts.each do |workout| %>
+  <% workout.exercises.each do |exercise| %>
+    <h4>Exercise:<%= exercise.name %></h4>
+    <h4>Instruction:<%= exercise.instruction %></h4>
+    <h4><%= exercise.equipment %></h4>
+  <% end %>
+<% end %>

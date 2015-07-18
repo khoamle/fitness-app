@@ -21,9 +21,10 @@ class ExercisesController < ApplicationController
 
   def show
     @exercise = Exercise.find_by(id: params[:id])
-    @instructions = @exercise.instruction.split(". ")
+    @instructions = @exercise.instruction.split(".")
     @comment = Comment.find_by(id: params[:id])
     @comments = Comment.all
+    @workout = Workout.find_by(name: params[:name])
     render "show"
   end
 
@@ -38,7 +39,6 @@ class ExercisesController < ApplicationController
   def update
     @exercise = Exercise.find_by(id: params[:id])
     @exercise.update(id: params[:id], name: params[:name], instruction: params[:instruction], equipment: params[:equipment], muscle: params[:muscle], level: params[:level])
-    #@exercise.images.destroy_all
     redirect_to "/exercises/#{@exercise.id}"
   end
 

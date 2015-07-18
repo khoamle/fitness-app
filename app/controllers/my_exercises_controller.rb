@@ -13,4 +13,6 @@ class MyExercisesController < ApplicationController
       redirect_to "/exercises/#{params[:exercise_id]}"
     end
   end
+
+  
 end

@@ -3,9 +3,9 @@
 <h3>Muscle worked: <%= @exercise.muscle %></h3>
 <h3>Level: <%= @exercise.level %></h3>
 
-<h3>Instuctions:</h3>
+<h3>Instructions:</h3>
 <ol>
-    <% @instructions.each do |instruction, num| %>
+    <% @instructions.each do |instruction| %>
       <li><%= instruction %><li>
     <% end %>
 </ol>
@@ -15,10 +15,20 @@
 <% end %>
 <br><br>
 
-<%= form_tag "/my_exercises", method: :post do%>
-  <%= hidden_field_tag "exercise_id", @exercise.id %>
-  <%= submit_tag "Add to Workout" %>
+<h3>Add to Workout</h3>
+
+<%= form_tag "/workout_exercises", method: :post do %>
+
+  <%= hidden_field_tag :exercise_id, params[:id] %>
+  <div>
+    <%= label_tag :workout %>
+    <%= collection_select :workout, :workout_id, Workout.all, :id, :name  %>
+  </div>
+  <div>
+    <%= submit_tag "Submit" %>
+  </div>
 <% end %>
+
 
 <h4>Comments</h4>
 <p><% @exercise.comments.each do |comment| %>
