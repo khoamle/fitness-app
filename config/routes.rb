@@ -34,14 +34,6 @@ Rails.application.routes.draw do
   get "/footer" => 'pages#footer'
   get "/workout" => 'pages#workout'
 
-  get "/routines" => 'routines#index.html'
-  get "/routines/new" => 'routines#new'
-  post "/routines" => 'routines#create'
-  get "/routines/:id" => 'routines#show'
-  get "/routines/:id/edit" => 'routines#edit'
-  patch "/routines/:id" => 'routines#update'
-  delete "/routines/:id" => 'routines#destroy'
-
   get "/workouts" => 'workouts#index'
   get "/workouts/new" => 'workouts#new'
   post "/workouts" => 'workouts#create'

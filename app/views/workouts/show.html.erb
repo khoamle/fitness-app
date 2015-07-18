@@ -1,7 +1,17 @@
-<% @workouts.each do |workout| %>
-  <% workout.exercises.each do |exercise| %>
-    <h4>Exercise:<%= exercise.name %></h4>
-    <h4>Instruction:<%= exercise.instruction %></h4>
-    <h4><%= exercise.equipment %></h4>
+<section id="clients" class="container">
+  <div class="inner team">
+    <h1 class="header light gray3 fancy"><span class="colored">My </span> Exercises</h1>
+  </div>
+</section>
+
+<div class="row">
+  <% @workout.exercises.each do |exercise| %>
+    <div class="col-md-4">
+      <h3>Name: <%= exercise.name %></h3>
+      <% exercise.images.each do |image| %>
+        <%= image_tag image.image_url, width: 250, height: 250  %>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>
+

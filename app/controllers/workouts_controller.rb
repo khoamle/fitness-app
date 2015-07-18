@@ -19,7 +19,7 @@ class WorkoutsController < ApplicationController
   end
 
   def show
-    @workouts = Workout.all
     @workout = Workout.find_by(id: params[:id])
+    @workouts = current_user.workouts
   end
 end
