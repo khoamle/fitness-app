@@ -42,7 +42,8 @@ Rails.application.routes.draw do
   get "/workout_exercises" => 'workout_exercises#index'
   post "/workout_exercises" => 'workout_exercises#create'
 
-  
+  resources :exercise_times
+
   # get "/images/new" => 'images#new'
   # post "/images" => 'images#create'
   # get "/images/:id/edit" => 'images#edit'

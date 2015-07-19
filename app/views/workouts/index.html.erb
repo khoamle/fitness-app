@@ -7,8 +7,8 @@
 <div class="row">
   <% @workouts.each do |workout| %>
     <div class="col-md-4">
-      <h3>Name: <%= workout.name %></h3>
-      
+      <h3>Workout: <%= workout.name %></h3>
+      <a href="/workouts/<%= workout.id %>" class="btn btn-info" role="button">Click to see exercises</a>
     </div>
   <% end %>
 </div>
