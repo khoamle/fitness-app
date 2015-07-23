@@ -1,21 +1,28 @@
-<section id="clients" class="container">
-  <div class="inner team">
-    <h1 class="header light gray3 fancy"><span class="colored">Workout </span> Exercises</h1>
-  </div>
-</section>
+<div ng-app="app">
+  <div ng-controller="exercisesCtrl">
 
-<div class="row">
-  <% @exercises.each do |exercise| %>
-    <div class="col-md-4">
-      <h3>Exercise: <%= exercise.name %></h3>
-      <h3>Muscles targeted:<%= exercise.muscle %></h3>
-      <% exercise.images.each do |image| %>
-        <%= image_tag image.image_url, width: 250, height: 250  %>
+    {{ 1 + 1}}
+
+    <section id="clients" class="container">
+      <div class="inner team">
+        <h1 class="header light gray3 fancy"><span class="colored">Workout </span> Exercises</h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <% @exercises.each do |exercise| %>
+        <div class="col-md-4">
+          <h3>Exercise: <%= exercise.name %></h3>
+          <h3>Muscles targeted:<%= exercise.muscle %></h3>
+          <% exercise.images.each do |image| %>
+            <%= image_tag image.image_url, width: 250, height: 250  %>
+          <% end %>
+          <a href="/exercises/<%= exercise.id %>" class="btn btn-info" role="button">Click to See More</a>
+          <br><br>
+        </div>
       <% end %>
-      <a href="/exercises/<%= exercise.id %>" class="btn btn-info" role="button">Click to See More</a>
-      <br><br>
     </div>
-  <% end %>
+  </div>  
 </div>
 
 

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
 //= require theme/SmoothScroll
 //= require theme/bootstrap.min
 //= require theme/jquery.appear

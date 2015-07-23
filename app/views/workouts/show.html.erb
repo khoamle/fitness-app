@@ -11,20 +11,20 @@
       <% exercise.images.each do |image| %>
         <%= image_tag image.image_url, width: 250, height: 250  %>
       <% end %>
-    <h1>Add a exercise time</h1>
+    <h3>What time do you want to workout?</h3>
 
-<%= form_tag "/exercise_times", method: :post do %>
-  <div>
-    <%= label_tag :time %>
-    <%= text_field_tag :time %>
-  </div>
-  <%= hidden_field_tag :exercise_id, exercise.id  %>
-  <%= hidden_field_tag :workout_id, @workout.id  %>
-  <div>
-    <%= label_tag :day_of_the_week %>
-    <%= collection_select :day_of_the_week, :day_id, DaysOfWeek.all, :id, :day  %>
-  </div>
-  <div>
+    <%= form_tag "/exercise_times", method: :post do %>
+      <div>
+        <%= label_tag :time %>
+        <%= time_field_tag :time %>
+      </div>
+      <%= hidden_field_tag :exercise_id, exercise.id  %>
+      <%= hidden_field_tag :workout_id, @workout.id  %>
+      <div>
+        <%= label_tag :day_of_the_week %>
+        <%= collection_select :day_of_the_week, :day_id, DaysOfWeek.all, :id, :day  %>
+      </div>
+    <div>
     <%= submit_tag "Create Exercise Time" %>
   </div>
 <% end %>

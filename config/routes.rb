@@ -6,6 +6,19 @@ Rails.application.routes.draw do
     resources :images
   end
 
+  resources :categories
+  resources :comments
+  resources :workouts
+  resources :workout_exercises
+  resources :exercise_times
+
+  get "/home" => 'pages#home'
+  get "/about" => 'pages#about'
+  get "/feature" => 'pages#feature'
+  get "/test" => 'pages#test'
+  get "/footer" => 'pages#footer'
+  get "/workout" => 'pages#workout'
+
   # get "/exercises" => 'exercises#index'
   # get "/exercises/new" => "exercises#new"
   # post "/exercises" => 'exercises#create'
@@ -15,39 +28,8 @@ Rails.application.routes.draw do
   # delete "/exercises/:id" => 'exercises#destroy'
 
 
-  get "/categories" => 'categories#index'
-  get "/categories/new" => 'categories#new'
-  post "/categories" => 'categories#create'
 
-  get "/comments" => 'comments#index.html'
-  get "/comments/new" => 'comments#new'
-  post "/comments" => 'comments#create'
-  get "/comments/:id" => 'comments#show'
-  get "/comments/:id/edit" => 'comments#edit'
-  patch "/comments/:id" => 'comments#update'
-  delete "/comments/:id" => 'comments#destroy'
 
-  get "/home" => 'pages#home'
-  get "/about" => 'pages#about'
-  get "/feature" => 'pages#feature'
-  get "/test" => 'pages#test'
-  get "/footer" => 'pages#footer'
-  get "/workout" => 'pages#workout'
-
-  get "/workouts" => 'workouts#index'
-  get "/workouts/new" => 'workouts#new'
-  post "/workouts" => 'workouts#create'
-  get "/workouts/:id" => 'workouts#show'
-
-  get "/workout_exercises" => 'workout_exercises#index'
-  post "/workout_exercises" => 'workout_exercises#create'
-
-  resources :exercise_times
-
-  # get "/images/new" => 'images#new'
-  # post "/images" => 'images#create'
-  # get "/images/:id/edit" => 'images#edit'
-  # patch "/images/:id" => 'images#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

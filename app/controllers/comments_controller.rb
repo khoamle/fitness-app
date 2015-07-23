@@ -1,8 +1,6 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
-    @exercise = Exercise.find_by(id: params[:id])
-    @comment = Comment.find_by(id: params[:id])
   end
 
   def show
@@ -17,14 +15,6 @@ class CommentsController < ApplicationController
     else
       render "new"
     end
-  end
-  def edit
-    @comment = Comment.find_by(exercise_id: params[:exercise_id])
-  end
-  def update
-    @comment = Comment.find_by(exercise_id: params[:exercise_id])
-    @comment.update(id: params[:id],body: params[:body], exercise_id: params[:exercise_id])
-    redirect_to "/exercises/#{params[:exercise_id]}"
   end
 
   def destroy
