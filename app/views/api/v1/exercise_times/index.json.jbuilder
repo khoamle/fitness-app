@@ -1,0 +1,1 @@
+json.array! @exercise_times, partial: 'exercise_time', as: :exercise_time

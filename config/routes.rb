@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :workouts
       resources :workout_exercises
+      resources :exercise_times
     end
   end
 
@@ -25,18 +26,6 @@ Rails.application.routes.draw do
   get "/test" => 'pages#test'
   get "/footer" => 'pages#footer'
   get "/workout" => 'pages#workout'
-
-  # get "/exercises" => 'exercises#index'
-  # get "/exercises/new" => "exercises#new"
-  # post "/exercises" => 'exercises#create'
-  # get "/exercises/:id" => 'exercises#show'
-  # get "/exercises/:id/edit" => 'exercises#edit'
-  # patch "/exercises/:id" => 'exercises#update'
-  # delete "/exercises/:id" => 'exercises#destroy'
-
-
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

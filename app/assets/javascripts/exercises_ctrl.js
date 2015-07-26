@@ -17,12 +17,19 @@
         workoutId: workoutId
       };
 
-    $http.post('/api/v1/workout_exercises.json', workoutExercise).then(function(response){
+      $http.post('/api/v1/workout_exercises.json', workoutExercise).then(function(response){
         $scope.workout_exercises.push(workoutExercise);
-      }, function(error) {
-        $scope.errors = error.data.errors;
       });
+    };
 
+    $scope.sortBy = function(attribute){
+      if(attribute != $scope.orderAttribute) {
+        $scope.descending = false;
+      } else {
+        $scope.descending = !$scope.descending;
+      }
+
+      $scope.orderAttribute = attribute;
     };
 
 

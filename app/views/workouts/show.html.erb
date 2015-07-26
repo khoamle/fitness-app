@@ -1,36 +1,34 @@
-<section id="clients" class="container">
-  <div class="inner team">
-    <h1 class="header light gray3 fancy"><span class="colored">My </span> Exercises</h1>
-  </div>
-</section>
+<div ng-app="app">
+  <div ng-controller="exerciseTimesCtrl" ng-init="setup()">
 
-<div class="row">
-  <% @workout.exercises.each do |exercise| %>
-    <div class="col-md-4">
-      <h3>Name: <%= exercise.name %></h3>
-      <% exercise.images.each do |image| %>
-        <%= image_tag image.image_url, width: 250, height: 250  %>
+    <section id="clients" class="container">
+      <div class="inner team">
+        <h1 class="header light gray3 fancy"><span class="colored">My </span> Exercises</h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <% @workout.exercises.each do |exercise| %>
+        <div class="col-md-4">
+          <h3>Name: <%= exercise.name %></h3>
+          <% exercise.images.each do |image| %>
+            <%= image_tag image.image_url, width: 250, height: 250  %>
+          <% end %>
+        <h3>What time do you want to workout?</h3>
+
+ 
+
+        <div>
+          Time: <input type="time" ng-model="newTime">
+        </div>
+          Day of the week: <select ng-model="dayId<%= exercise.id %>" ng-options="k as v for (k,v) in daysOfWeeks"></select>
+
+        <button ng-click="addExerciseTime(<%= exercise.id %>, newTime, dayId<%= exercise.id %>)">Create Exercise Time</button>
+
+        </div>
       <% end %>
-    <h3>What time do you want to workout?</h3>
-
-    <%= form_tag "/exercise_times", method: :post do %>
-      <div>
-        <%= label_tag :time %>
-        <%= time_field_tag :time %>
-      </div>
-      <%= hidden_field_tag :exercise_id, exercise.id  %>
-      <%= hidden_field_tag :workout_id, @workout.id  %>
-      <div>
-        <%= label_tag :day_of_the_week %>
-        <%= collection_select :day_of_the_week, :day_id, DaysOfWeek.all, :id, :day  %>
-      </div>
-    <div>
-    <%= submit_tag "Create Exercise Time" %>
-  </div>
-<% end %>
-
     </div>
-  <% end %>
+  </div>
 </div>
 
 
