@@ -19,14 +19,7 @@
 
 <%= form_tag "/workout_exercises", method: :post do %>
   <%= hidden_field_tag :exercise_id, params[:id] %>
-  <div>
-    <%= label_tag :sets %>
-    <%= text_field_tag :sets %>
-  </div>
-  <div>
-    <%= label_tag :reps %>
-    <%= text_field_tag :reps %>
-  </div>
+
   <div>
     <%= label_tag :workout %>
     <%= collection_select :workout, :workout_id, Workout.all, :id, :name  %>

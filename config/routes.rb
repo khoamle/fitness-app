@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     resources :images
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :workouts
+      resources :workout_exercises
+    end
+  end
+
   resources :categories
   resources :comments
   resources :workouts
