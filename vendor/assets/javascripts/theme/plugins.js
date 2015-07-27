@@ -174,24 +174,24 @@ Navigation Scroll Effect
 =============================================== */
 
 
-$(document).ready(function () {
-	'use strict';
+// $(document).ready(function () {
+// 	'use strict';
 
-    var menu = $('#navigation');
+//     var menu = $('#navigation');
 
-    $(window).scroll(function () {
-        var y = $(this).scrollTop();
-        var z = $('.waypoint').offset().top - 200;
+//     $(window).scroll(function () {
+//         var y = $(this).scrollTop();
+//         var z = $('.waypoint').offset().top - 200;
 
-        if (y >= z) {
-            menu.removeClass('not-visible-nav').addClass('visible-nav');
-        }
-        else{
-            menu.removeClass('visible-nav').addClass('not-visible-nav');
-        }
-    });
+//         if (y >= z) {
+//             menu.removeClass('not-visible-nav').addClass('visible-nav');
+//         }
+//         else{
+//             menu.removeClass('visible-nav').addClass('not-visible-nav');
+//         }
+//     });
 
-});
+// });
 
 
  /* ==============================================

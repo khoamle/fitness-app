@@ -1,9 +1,10 @@
 <div ng-app="app">
   <div ng-controller="exerciseTimesCtrl" ng-init="setup()">
 
+
     <section id="clients" class="container">
       <div class="inner team">
-        <h1 class="header light gray3 fancy"><span class="colored">My </span> Exercises</h1>
+        <h1 class="header light gray3 fancy"><span class="colored">My </span> Exercises <span class="colored">For </span><%= @workout.name %></h1>
       </div>
     </section>
 
@@ -14,17 +15,15 @@
           <% exercise.images.each do |image| %>
             <%= image_tag image.image_url, width: 250, height: 250  %>
           <% end %>
-        <h3>What time do you want to workout?</h3>
-
- 
+        <h3>Choose workout time?</h3>
 
         <div>
           Time: <input type="time" ng-model="newTime">
         </div>
-          Day of the week: <select ng-model="dayId<%= exercise.id %>" ng-options="k as v for (k,v) in daysOfWeeks"></select>
+          Day of the week: <select ng-model="dayId<%= exercise.id %>" ng-options="k as v for (k,v) in daysOfWeeks"></select> 
 
-        <button ng-click="addExerciseTime(<%= exercise.id %>, newTime, dayId<%= exercise.id %>)">Create Exercise Time</button>
-
+        <button ng-click="addExerciseTime(<%= exercise.id %>, newTime, dayId<%= exercise.id %>, <%= current_user.id %>)">Add to Calendar</button>
+  <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> 
         </div>
       <% end %>
     </div>

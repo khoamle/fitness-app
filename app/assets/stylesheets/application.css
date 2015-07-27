@@ -19,6 +19,7 @@
  *= require theme/reset
  *= require theme/style
  *= require theme/responsive
+ *= require fullcalendar
  *= require_tree .
  *= require_self
  */

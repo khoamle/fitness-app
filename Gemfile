@@ -12,6 +12,7 @@ gem 'seed_dump'
 gem 'pry-rails', :group => :developement
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'thematic'
+gem 'momentjs-rails', '>= 2.9.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

@@ -11,10 +11,15 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require angular
-//= require theme/SmoothScroll
 //= require theme/bootstrap.min
+//= require jquery_ujs
+//= require moment
+//= require angular
+//= require app
+//= require fullcalendar
+//= require calendar
+//= require gcal
+//= require theme/SmoothScroll
 //= require theme/jquery.appear
 //= require theme/jquery.easing.1.3
 //= require theme/jquery.fitvids
