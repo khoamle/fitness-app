@@ -20,6 +20,7 @@
  *= require theme/style
  *= require theme/responsive
  *= require fullcalendar
+ *= require datetimepicker
  *= require_tree .
  *= require_self
  */

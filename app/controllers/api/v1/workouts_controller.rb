@@ -6,5 +6,6 @@ class Api::V1::WorkoutsController < ApplicationController
 
   end
   def show
+    @workout = Workout.find(params[:id])
   end
 end

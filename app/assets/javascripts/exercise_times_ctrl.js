@@ -16,14 +16,7 @@
             currentTimezone: 'America/Chicago' // an option!
      };
     /* event source that contains custom events on the scope */
-    $scope.events = [
-      {title: 'All Day Event',start: new Date(y, m, 1)},
-      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-      {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
-      {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-    ];
+    $scope.events = [];
 
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
@@ -45,6 +38,7 @@
     };
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
+      console.log('add to calendar clicked!', date, jsEvent);
         $scope.alertMessage = (date.title + ' was clicked ');
     };
     /* alert on Drop */
@@ -69,13 +63,14 @@
       }
     };
     /* add custom event*/
-    $scope.addEvent = function() {
+    $scope.addEvent = function(date, title, exerciseId) {
       $scope.events.push({
-        title: 'Open Sesame',
-        start: new Date(y, m, 28),
-        end: new Date(y, m, 29),
+        title: title,
+        start: date,
         className: ['openSesame']
       });
+
+      addExerciseTime(date, title, exerciseId)
     };
     /* remove event */
     $scope.remove = function(index) {
@@ -131,32 +126,40 @@
 
 
 
-    $scope.setup = function() {
+    $scope.setup = function(id) {
       $http.get("/api/v1/exercise_times.json").then(function(response) {
         $scope.exercise_times = response.data;
       });
-      $scope.daysOfWeeks = {
-        1: "Sunday",
-        2: "Monday",
-        3: "Tuesday", 
-        4: "Wednesday",
-        5: "Thursday", 
-        6: "Friday", 
-        7: "Saturday"
-      };
+
+      $http.get("/api/v1/workouts/" + id +".json").then(function(response) {
+        $scope.workout = response.data;
+        addToCalendar(response.data.exercises)
+      });
+
     };
 
-    $scope.addExerciseTime = function(exerciseId, time, dayId, currentUserId) {
-      var exerciseTime = {
-        exerciseId : exerciseId,
-        time: time,
-        dayId: dayId,
-        currentUserId: currentUserId
+    function addToCalendar(exercises){
+      for (var i = 0; i < exercises.length; i++) {
+        for (var j = 0; j < exercises[i].exercise_times.length; j++) {
+          debugger
+          $scope.events.push({
+            title: exercises[i].exercise_times[j].title,
+            start: exercises[i].exercise_times[j].date
+          });
+        }
+      }
+
+    }
+
+    var addExerciseTime = function(date, title, exerciseId) {      
+      var exercise = {
+        exerciseId: exerciseId,
+        date: date,
+        title: title
       };
 
-      $http.post('/api/v1/exercise_times.json', exerciseTime).then(function(response){
-        $scope.exercise_times.push(exerciseTime);
-      });
+       $http.post('/api/v1/exercise_times.json', exercise).then(function(response){
+       });
     };
 
     window.scope = $scope;
