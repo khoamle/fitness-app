@@ -1,7 +1,7 @@
 class WorkoutExercisesController < ApplicationController
 
   def index 
-
+    
   end
 
   def create 

@@ -7,19 +7,6 @@
       </div>
     </section>
 
-    <datalist id="exerciseName">
-      <option ng-repeat="exercise in exercises">{{ exercise.name }}</option>
-    </datalist>
-
-
-    <div>
-      <h3>Search Exercise<input ng-model="exerciseNameFilter" list="exerciseName"></h3>
-    </div>
-
-    <li ng-repeat="exercise in exercises | filter: { exerciseName: exerciseNameFilter} | orderBy:orderAttribute:descending">
-      <h3>Exercise name: {{ exercise.name }}</h3>
-    </li>
-
     <div class="row">
       <% @exercises.each do |exercise| %>
         <div class="col-md-4">
@@ -44,7 +31,5 @@
     </div>
   </div>  
 </div>
-
-
 
 
