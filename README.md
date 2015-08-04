@@ -15,6 +15,4 @@ LIST OF WEB TECHNOLOGIES USED
 * Json API
 * Carrierwave Gem(used to upload images)
 * Fitness theme from theme wagon
-* Angular Datetimepicker
-* Angular UI Calendar
 

@@ -129,8 +129,8 @@
       }
     };
     /* event sources array*/
-    $scope.eventSources = [$scope.events];
-    // $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
+    $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
+    $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
 
 
     $scope.setup = function(id) {
