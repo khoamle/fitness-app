@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require theme/bootstrap.min
+ *= require bootstrap-datetimepicker
  *= require theme/animate.min
  *= require theme/font-awesome
  *= require theme/owl.carousel

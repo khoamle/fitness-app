@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require angular
 //= require moment
+//= require bootstrap-datetimepicker
 //= require app
 //= require fullcalendar
 //= require calendar

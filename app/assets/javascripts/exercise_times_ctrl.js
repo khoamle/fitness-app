@@ -63,16 +63,6 @@
       }
     };
 
-      // $scope.days = [
-      //   { id: 0, text: 'Sunday' },
-      //   { id: 1, text: 'Monday' },
-      //   { id: 2, text: 'Tuesday' },
-      //   { id: 3, text: 'Wednesday' },
-      //   { id: 4, text: 'Thursday' },
-      //   { id: 5, text: 'Friday' },
-      //   { id: 6, text: 'Saturday' }
-      // ];
-
     /* add custom event*/
     $scope.addEvent = function(date, title, exercise_id) {
       var newExerciseTime = {
@@ -146,6 +136,7 @@
     $scope.setup = function(id) {
       $http.get("/api/v1/exercise_times.json").then(function(response) {
         $scope.exercise_times = response.data;
+        showEvents($scope.exercise_times);
       });
 
       $http.get("/api/v1/workouts/" + id + ".json").then(function(response) {
@@ -153,6 +144,16 @@
         addToCalendar(response.data.exercises)
       });
     };
+
+    function showEvents(times) {
+      for (var i=0; i<times.length;i++) {
+        var event = {
+          title: times[i].title,
+          start: times[i].date
+        }
+        $scope.events.push(event);
+      }
+    } 
 
     function addToCalendar(exercises){
       for (var i = 0; i < exercises.length; i++) {
@@ -165,17 +166,6 @@
         }
       }
     };
-
-    // var addExerciseTime = function(exercise) {      
-    //   var newExercise = {
-    //     exercise_id: exercise['id'],
-    //     date: exercise['date'],
-    //     title: exercise['name']
-    //   };
-
-       
-    // };
-
 
     window.scope = $scope;
   });
