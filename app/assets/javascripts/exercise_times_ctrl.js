@@ -136,24 +136,13 @@
     $scope.setup = function(id) {
       $http.get("/api/v1/exercise_times.json").then(function(response) {
         $scope.exercise_times = response.data;
-        showEvents($scope.exercise_times);
       });
 
       $http.get("/api/v1/workouts/" + id + ".json").then(function(response) {
         $scope.workout = response.data;
         addToCalendar(response.data.exercises)
       });
-    };
-
-    function showEvents(times) {
-      for (var i=0; i<times.length;i++) {
-        var event = {
-          title: times[i].title,
-          start: times[i].date
-        }
-        $scope.events.push(event);
-      }
-    } 
+    }; 
 
     function addToCalendar(exercises){
       for (var i = 0; i < exercises.length; i++) {
