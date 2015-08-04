@@ -12,5 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular
+//= require moment
+//= require bootstrap-datetimepicker
+//= require app
+//= require fullcalendar
+//= require calendar
+//= require gcal
+//= require datetimepicker
+//= require theme/bootstrap.min
+//= require theme/SmoothScroll
+//= require theme/jquery.appear
+//= require theme/jquery.easing.1.3
+//= require theme/jquery.fitvids
+//= require theme/jquery.flexslider
+//= require theme/jquery.mb.YTPlayer
+//= require theme/jquery.parallax-1.1.3
+//= require theme/jquery.prettyPhoto
+//= require theme/jquery.slabtext
+//= require theme/jquery.superslides
+//= require theme/modernizr-latest
+//= require theme/plugins
 //= require_tree .

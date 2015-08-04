@@ -1,0 +1,15 @@
+<section id="clients" class="container">
+  <div class="inner team">
+    <h1 class="header light gray3 fancy"><span class="colored">Create </span> Workout</h1>
+  </div>
+</section>
+
+<%= form_tag "/workouts", method: :post do%>
+  <div>
+    <%= label_tag :name %>
+    <%= text_area_tag :name %>
+  </div>
+  <div>
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>

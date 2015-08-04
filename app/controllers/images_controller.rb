@@ -31,8 +31,12 @@ class ImagesController < ApplicationController
 
   def destroy
     @image = Image.find_by(exercise_id: params[:exercise_id])
-    @image.destroy
-    redirect_to "/images"
+    if @image.destroy
+      flash[:danger] = "Image sucessfully deleted!"
+      redirect_to :images
+    else
+      render :images
+    end
   end
 
 end

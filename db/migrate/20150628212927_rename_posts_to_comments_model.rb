@@ -1,5 +1,5 @@
 class RenamePostsToCommentsModel < ActiveRecord::Migration
   def change
-    remove_column :comments, :title, :string
+    rename_table :posts, :comments
   end
 end

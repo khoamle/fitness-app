@@ -6,31 +6,26 @@ Rails.application.routes.draw do
     resources :images
   end
 
-  # get "/exercises" => 'exercises#index'
-  # get "/exercises/new" => "exercises#new"
-  # post "/exercises" => 'exercises#create'
-  # get "/exercises/:id" => 'exercises#show'
-  # get "/exercises/:id/edit" => 'exercises#edit'
-  # patch "/exercises/:id" => 'exercises#update'
-  # delete "/exercises/:id" => 'exercises#destroy'
+  namespace :api do
+    namespace :v1 do
+      resources :workouts
+      resources :workout_exercises
+      resources :exercise_times
+    end
+  end
 
+  resources :categories
+  resources :comments
+  resources :workouts
+  resources :workout_exercises
+  resources :exercise_times
 
-  get "/categories" => 'categories#index'
-  get "/categories/new" => 'categories#new'
-  post "/categories" => 'categories#create'
-
-  get "/comments" => 'comments#index.html'
-  get "/comments/new" => 'comments#new'
-  post "/comments" => 'comments#create'
-  get "/comments/:id" => 'comments#show'
-  get "/comments/:id/edit" => 'comments#edit'
-  patch "/comments/:id" => 'comments#update'
-  delete "/comments/:id" => 'comments#destroy'
-
-  # get "/images/new" => 'images#new'
-  # post "/images" => 'images#create'
-  # get "/images/:id/edit" => 'images#edit'
-  # patch "/images/:id" => 'images#update'
+  get "/home" => 'pages#home'
+  get "/about" => 'pages#about'
+  get "/feature" => 'pages#feature'
+  get "/test" => 'pages#test'
+  get "/footer" => 'pages#footer'
+  get "/workout" => 'pages#workout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

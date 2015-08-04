@@ -1,14 +1,10 @@
 class ExercisesController < ApplicationController
-  before_filter :authenticate_user!, :except => ["index"]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
+    @exercises = Exercise.all
     if params[:category]
       @exercises = Category.find_by(name: params[:category]).exercises
-    end
-    if user_signed_in?
-      @exercises = current_user.exercises
-    else
-      @exercises = Exercise.all
     end
   end
 
@@ -19,16 +15,12 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.create(id: params[:id], name: params[:name], instruction: params[:instruction], equipment: params[:equipment], muscle: params[:muscle], level: params[:level])
     @categorized_exercise = CategorizedExercise.create(category_id: params[:category][:category_id], exercise_id: @exercise.id)
-    @comment = Comment.create(exercise_id: @exercise.id)
     redirect_to "/exercises/#{@exercise.id}"
   end
 
   def show
     @exercise = Exercise.find_by(id: params[:id])
-    #@comment = Comment.find_by(exercise_id: params[:id])
-    @instructions = @exercise.instruction.split(". ")
-    @comment = Comment.find_by(id: params[:id])
-    @comments = Comment.all
+    @instructions = @exercise.instruction.split(".")
     render "show"
   end
 
@@ -43,7 +35,6 @@ class ExercisesController < ApplicationController
   def update
     @exercise = Exercise.find_by(id: params[:id])
     @exercise.update(id: params[:id], name: params[:name], instruction: params[:instruction], equipment: params[:equipment], muscle: params[:muscle], level: params[:level])
-    #@exercise.images.destroy_all
     redirect_to "/exercises/#{@exercise.id}"
   end
 
