@@ -17,17 +17,20 @@
           <% exercise.images.each do |image| %>
             <%= image_tag image.image_url, width: 250, height: 250  %>
           <% end %>
-          <a href="/exercises/<%= exercise.id %>" class="btn btn-info" role="button">Click to See More</a>
+          <a href="/exercises/<%= exercise.id %>" class="btn btn-info" role="button">Click for more info</a>
           <div>
             Reps: <input ng-model="newReps">
           </div>
           <div>
             Sets: <input ng-model="newSets">
           </div>
-          <select ng-model="workoutId" ng-options="workout.name for workout in workouts"></select>
+            Select Workout
+            <select ng-model="workoutId" ng-options="workout.name for workout in workouts"></select><br><br>
+          
           <button ng-click="addToWorkout(newSets, newReps, <%= exercise.id %>, workoutId)">Add to Workout</button>
           
           <br><br>
+          <div class="index-horizontal"></div>
         </div>
       <% end %>
     </div>
