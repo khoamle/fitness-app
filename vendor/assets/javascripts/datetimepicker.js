@@ -41,7 +41,7 @@
         var localOffset = tempDate.getTimezoneOffset() * 60000;
         this.utcDateValue = tempDate.getTime();
         this.selectable = true;
-
+debugger
         this.localDateValue = function () {
           return this.utcDateValue + localOffset;
         };

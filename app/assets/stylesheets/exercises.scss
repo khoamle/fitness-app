@@ -7,3 +7,9 @@ textarea#instruction {
   width: 800px;
 }
 
+.flash-message {
+  position: fixed;
+  top: 100px;
+  z-index: 1000;
+}
+

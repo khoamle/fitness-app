@@ -72,6 +72,7 @@
         stick: true,
         className: ['openSesame']
       }
+  
       $scope.events.push(newExerciseTime);
       $http.post('/api/v1/exercise_times.json', newExerciseTime).then(function(response){
        });      
@@ -140,7 +141,7 @@
 
       $http.get("/api/v1/workouts/" + id + ".json").then(function(response) {
         $scope.workout = response.data;
-        addToCalendar(response.data.exercises)
+        addToCalendar(response.data.workout_exercises)
       });
     }; 
 

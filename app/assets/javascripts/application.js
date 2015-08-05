@@ -20,6 +20,7 @@
 //= require calendar
 //= require gcal
 //= require datetimepicker
+//= require angular-flash
 //= require theme/bootstrap.min
 //= require theme/SmoothScroll
 //= require theme/jquery.appear

@@ -8,11 +8,11 @@
     </section>
 
     <div class="row">
-      <div ng-repeat="exercise in workout.exercises">
+      <div ng-repeat="exercise in workout.workout_exercises">
       <div class="col-md-3">
         <h3>Name: {{ exercise.name }}</h3>
-        <h3>Sets: </h3>
-        <h3>Reps: </h3>
+        <h3>Sets: {{ exercise.sets }}</h3>
+        <h3>Reps: {{ exercise.reps}}</h3>
         <ul>
           <li ng-repeat="image in exercise.images">
             <img height="250" width="250" ng-src="{{image.image.image.url }}">

@@ -23,6 +23,7 @@
  *= require fullcalendar
  *= require calendarDemo
  *= require datetimepicker
+ *= require angular-flash
  *= require_tree .
  *= require_self
  */

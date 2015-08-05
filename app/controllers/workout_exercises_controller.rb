@@ -5,7 +5,7 @@ class WorkoutExercisesController < ApplicationController
   end
 
   def create 
-    @workout_exercise = WorkoutExercise.new(workout_id: params[:workout][:workout_id], exercise_id: params[:exercise_id], sets: params[:sets], reps: params[:reps])
+    @workout_exercise = WorkoutExercise.new(workout_id: params[:workout][:workout_id], exercise_id: params[:exercise_id], sets: params[:sets], reps: params[:reps], user_id: current_user)
     if @workout_exercise.save
       flash[:success] = "Your workout exercise sucessfully created!"
       redirect_to :workouts

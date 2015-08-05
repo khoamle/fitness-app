@@ -4,7 +4,8 @@ class Api::V1::ExerciseTimesController < ApplicationController
   end
 
   def create
-    @exercise_time = ExerciseTime.create(user_id: current_user.id, exercise_id: params[:exercise_id], date: params[:start], title: params[:title])
+    start = params[:start].to_time - 5.hours
+    @exercise_time = ExerciseTime.create(user_id: current_user.id, exercise_id: params[:exercise_id], date: start.to_s, title: params[:title])
     redirect_to :workouts
   end
 
