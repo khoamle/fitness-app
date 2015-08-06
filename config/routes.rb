@@ -11,8 +11,12 @@ Rails.application.routes.draw do
       resources :workouts
       resources :workout_exercises
       resources :exercise_times
+      resources :exercises, except: :index
     end
   end
+    
+
+
 
   resources :categories
   resources :comments

@@ -10,14 +10,16 @@
     <div class="flash-message" flash-message="2000" ></div> 
 
     <div class="row">
-      <% @exercises.each do |exercise| %>
+      <div ng-repeat="exercise in exercises"
         <div class="col-md-4">
-          <h3>Exercise: <%= exercise.name %></h3>
-          <h3>Muscles targeted:<%= exercise.muscle %></h3>
-          <% exercise.images.each do |image| %>
-            <%= image_tag image.image_url, width: 250, height: 250  %>
-          <% end %>
-          <a href="/exercises/<%= exercise.id %>" class="btn btn-info" role="button">Click for more info</a>
+          <h3>Exercise: {{ exercise.name }}</h3>
+          <h3>Muscles targeted: {{ exercise.muscle }} </h3>
+          <ul>
+            <li ng-repeat="image in exercise.images">
+            <img height="250" width="250" ng-src="{{image.image.url }}">
+            </li>
+          </ul>
+          <a ng-href="/exercises/{{ exercise.id }}" class="btn btn-info" role="button">Click for more info</a>
           <div>
             Reps: <input ng-model="newReps">
           </div>
@@ -27,12 +29,13 @@
             Select Workout
             <select ng-model="workoutId" ng-options="workout.name for workout in workouts"></select><br><br>
           
-          <button ng-click="addToWorkout(newSets, newReps, <%= exercise.id %>, workoutId)">Add to Workout</button>
+          <button ng-click="addToWorkout(newSets, newReps, exercise.id, workoutId)">Add to Workout</button>
           
-          <br><br>
+          <br><br><br><br>
           <div class="index-horizontal"></div>
+          <br><br>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>  
 </div>

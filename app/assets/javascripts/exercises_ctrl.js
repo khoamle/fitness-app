@@ -1,11 +1,14 @@
 (function() {
   "use strict";
  
-  angular.module("app").controller("exercisesCtrl", function($scope, $http, Flash) {
+  angular.module("app").controller("exercisesCtrl", function($scope, $http, $location, Flash) {
 
     $scope.setup = function() {
       $http.get("/api/v1/workouts.json").then(function(response) {
         $scope.workouts = response.data;
+      });
+      $http.get("/exercises.json" + window.location.search).then(function(response) {
+        $scope.exercises = response.data;
       });
     };
 
